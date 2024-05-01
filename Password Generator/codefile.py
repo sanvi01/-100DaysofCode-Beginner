@@ -19,4 +19,4 @@ for i in range(0, no_nums):
 for i in range(0, no_symbols):
     password += random.choice(symbols)
     
-print(password)
+print(f"You password is: {password}")
