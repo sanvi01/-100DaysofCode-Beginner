@@ -4,6 +4,7 @@ direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower
 mssg = input("Type message:\n").lower()
 shift = int(input("Type the shift number:\n"))
 
+#encryption
 def encrypt(plain_mssg, shift_amount):
     cipher_mssg =[]
     for letter in mssg:
@@ -11,6 +12,7 @@ def encrypt(plain_mssg, shift_amount):
         cipher_mssg.append(alphabet[new_position])
     print(f"Your encrypted message is: {''.join(cipher_mssg)}")
 
+#decryption
 def decrypt(plain_mssg, shift_amount):
     decoded_mssg = []
     for letter in mssg:
