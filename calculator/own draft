@@ -13,13 +13,13 @@ def calculate(a, b, c):
         print("invalid operator")
     
 def calculator():    
-    num1 = int(input("Enter the first number: "))
+    num1 = float(input("Enter the first number: "))
     should_continue = True
     while should_continue:
         for i in ['+','-','/','*']:
             print(i)
         operator = input("Choose operator: ")
-        num2 = int(input("Enter the next number: "))
+        num2 = float(input("Enter the next number: "))
         result = calculate(num1, num2, operator)
         print(f"{num1} {operator} {num2} = {result}")
         save_and_continue = input(f"Enter 'y'to continue with {result} or enter 'n' to start new calculation: ").lower()
