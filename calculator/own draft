@@ -1,0 +1,31 @@
+#calculator
+def calculate(a, b, c):
+    d = 0
+    if c == '+':
+        return a + b
+    elif c == '-':
+        return a - b
+    elif c == '/':
+        return a / b
+    elif c == '*':
+        return a * b
+    else:
+        print("invalid operator")
+    
+    
+num1 = int(input("Enter the first number: "))
+should_continue = True
+while should_continue:
+    for i in ['+','-','/','*']:
+        print(i)
+    operator = input("Choose operator: ")
+    num2 = int(input("Enter the next number: "))
+    result = calculate(num1, num2, operator)
+    print(f"{num1} {operator} {num2} = {result}")
+    save_and_continue = input(f"Enter 'y'to continue with {result} or enter 'n' to start new calculation: ").lower()
+    if save_and_continue == 'y':
+        num1 = result
+    elif save_and_continue == 'n':
+        num1 = int(input("Enter the first number: "))
+    
+    
