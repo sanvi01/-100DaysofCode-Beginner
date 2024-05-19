@@ -1,0 +1,51 @@
+import random
+
+cards = [11,2,3,4,5,6,7,8,9,10,10,10,10]
+user_cards = []
+computer_cards = []
+
+def deal_card():
+    user_cards.append(random.choice(cards))
+    computer_cards.append(random.choice(cards))
+
+def BlackJack():
+    for i in range(2):
+        deal_card()   
+    print(f"Your cards: {user_cards}, Current total:{user_cards[0]+user_cards[1]}")
+    print(f"Computer's first card: {computer_cards[0]}")
+    add_card = input("Do you want another card? 'y' or 'n': ")
+    if add_card == 'y':
+        add = random.choice(cards)
+        user_cards.append(add)
+        print(f"Your cards: {user_cards}, Current total:{sum(user_cards)}")
+        print(f"Computer's first card: {computer_cards[0]}")
+        print(f"Your final cards: {user_cards}, Your final total:{sum(user_cards)}")
+    else:
+        print(f"Your final cards: {user_cards}, Your final total:{sum(user_cards)}")
+    if sum(computer_cards)<=13:
+        add2 = random.choice(cards)
+        computer_cards.append(add2)
+        print(f"Computer's final cards: {computer_cards}, Computer's final total:{sum(computer_cards)}")
+    else:
+        print(f"Computer's final cards: {computer_cards}, Computer's final total:{sum(computer_cards)}")
+        
+    user_total = sum(user_cards)
+    computer_total = sum(computer_cards)
+    if user_total>computer_total and user_total<=21:
+        print("You win!!")
+    elif user_total>computer_total and user_total>21:
+        print("You lose")
+    elif user_total<computer_total and computer_total>21:
+        print("You win!!")
+    elif user_total<computer_total and computer_total<=21:
+        print("You lose")
+    elif user_total == computer_total:
+        print("Draw")
+
+game_on = input("Do you want to play game of BlackJack?'y' or 'n': ")
+if game_on == 'y':
+    BlackJack()
+else:
+    print("ok bye..")
+    
+      
