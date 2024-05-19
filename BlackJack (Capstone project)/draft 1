@@ -1,0 +1,47 @@
+import random
+
+cards = [11,2,3,4,5,6,7,8,9,10,10,10,10]
+user_cards = []
+computer_cards = []
+game_on = input("Do you want to play game of BlackJack?'y' or 'n': ")
+if game_on == 'y':
+    for i in range(2):
+        a = random.choice(cards)
+        b = random.choice(cards)
+        user_cards.append(a)
+        computer_cards.append(b)
+    print(f"Your cards: {user_cards}, Current total:{user_cards[0]+user_cards[1]}")
+    print(f"Computer's first card: {computer_cards[0]}")
+    add_card = input("Do you want another card? 'y' or 'n': ")
+    if add_card == 'y':
+        c = random.choice(cards)
+        user_cards.append(c)
+        user_total = user_cards[0]+user_cards[1]+user_cards[2]
+        print(f"Your cards: {user_cards}, Current total:{user_total}")
+        print(f"Computer's first card: {computer_cards[0]}")
+        print(f"Your cards: {user_cards}, Current total:{user_total}")
+    else:
+        user_total = user_cards[0]+user_cards[1]
+        print(f"Your final cards: {user_cards}, Your final total:{user_total}")
+    computer_total = computer_cards[0]+computer_cards[1]
+    if computer_total<=13:
+        d = random.choice(cards)
+        computer_cards.append(d)
+        computer_total = computer_total+computer_cards[2]
+        print(f"Computer's final cards: {computer_cards}, Computer's final total:{computer_total}")
+    else:
+        print(f"Computer's final cards: {computer_cards}, Computer's final total:{computer_total}")
+else:
+    print("ok bye..")
+    
+if user_total>computer_total and user_total<=21:
+    print("You win")
+elif user_total == computer_total:
+    print("Draw")
+elif user_total>computer_total and user_total>21:
+    print("You lose")
+elif user_total<computer_total and computer_total<=21:
+    print("You lose")
+elif user_total<computer_total and computer_total>21:
+    print("You win")
+      
